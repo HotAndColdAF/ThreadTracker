@@ -35,7 +35,7 @@
     {
         Console.Clear();
         Console.WriteLine("Enter month and year:");
-        var fullMonth = Console.ReadLine();
+        string fullMonth = Console.ReadLine();
         Console.WriteLine("<div style=\"width:850px;font-family:Arial Black, Gadget;font-size:30px;letter-spacing:5px;text-transform:uppercase;text-align:right;\">" + fullMonth.ToUpper() + "</div>");
         Console.WriteLine("<div style=\"width:100%;text-align:justify;border-radius:10px;border-top: 15px solid #5DA2D3;padding:15px;\">");
         Console.WriteLine("Place your entries here");
