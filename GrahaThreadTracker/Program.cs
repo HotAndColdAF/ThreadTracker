@@ -35,7 +35,7 @@
     {
         Console.Clear();
         Console.WriteLine("Enter month and year:");
-        var fullMonth = Console.ReadLine();
+        string fullMonth = Console.ReadLine();
         Console.WriteLine("<div style=\"width:850px;font-family:Arial Black, Gadget;font-size:30px;letter-spacing:5px;text-transform:uppercase;text-align:right;\">" + fullMonth.ToUpper() + "</div>");
         Console.WriteLine("<div style=\"width:100%;text-align:justify;border-radius:10px;border-top: 15px solid #5DA2D3;padding:15px;\">");
         Console.WriteLine("Place your entries here");
@@ -74,7 +74,7 @@
                 finalCode = Entry(false);
                 Console.WriteLine("Enter top-level URL:");
                 string threadURL = Console.ReadLine();
-                finalCode += "<li><b><a href=\"" + threadURL + "\" style=\"text-decoration:none;color:#5DA2D3;\">Top Level:</a></b></li>\r\n<ul>";
+                finalCode += $"<li><b><a href=\"{threadURL}\" style=\"text-decoration:none;color:#5DA2D3;\">Top Level:</a></b></li>\r\n<ul>";
                 tagIns = TagIns();
                 while (tagIns > 0)
                 {
@@ -82,7 +82,7 @@
                     string charName = Console.ReadLine();
                     Console.WriteLine("Enter character journal name:");
                     string charJournal = Console.ReadLine();
-                    finalCode += "\r\n<li>" + charName + " (<user name=\"" + charJournal + "\">)</li>";
+                    finalCode += $"\r\n<li>{charName} (<user name=\"{charJournal}\">)</li>";
                     tagIns--;
                 }
                 Console.WriteLine("\r\nYour final code is:");
@@ -123,7 +123,7 @@
         string charName = Console.ReadLine();
         Console.WriteLine("Enter character journal name:");
         string charJournal = Console.ReadLine();
-        return "\r\n<li><b><a href=\"" + threadURL + "\" style=\"text-decoration:none;color:#93762D;\">Thread:</a></b> " + charName + " (<user name=\"" + charJournal + "\">)</li>";
+        return $"\r\n<li><b><a href=\"{threadURL}\" style=\"text-decoration:none;color:#93762D;\">Thread:</a></b> {charName} (<user name=\"{charJournal}\">)</li>";
     }
     private static string Entry(bool myEntry)
     {
@@ -137,11 +137,11 @@
         //An entry my character is the OP for has a different text color than one I tag into
         if (myEntry == true)
         {
-            return "<p><B>&#9203; <a href=\"" + entryURL + "\" style=\"text-decoration:none;color:#5DA2D3;\">" + entryDate + " -- " + entryName + "</A></B>" + "\r\n<ul>";
+            return $"<p><B>&#9203; <a href=\"{entryURL}\" style=\"text-decoration:none;color:#5DA2D3;\">{entryDate} -- {entryName}</A></B>\r\n<ul>";
         }
         else
         {
-            return "<p><B>&#9203; <a href=\"" + entryURL + "\" style=\"text-decoration:none;color:#93762D;\">" + entryDate + " -- " + entryName + "</A></B>" + "\r\n<ul>";
+            return $"<p><B>&#9203; <a href=\"{entryURL}\" style=\"text-decoration:none;color:#93762D;\">{entryDate} -- {entryName}</A></B>\r\n<ul>";
         }
     }
 }
